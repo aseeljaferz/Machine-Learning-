@@ -1,3 +1,19 @@
+1  missing value:
+from google.colab import files
+uploaded = files.upload()
+
+import pandas as pd
+import io
+df = pd.read_csv(io.BytesIO(uploaded['StudentsPerformance.csv']))
+print(df)
+df.fillna({"writing score":df["writing score"].mean()},inplace = True)
+print(df)
+f.fillna({"reading score":df["reading score"].median()},inplace = True)
+print(df)
+df["gender"].fillna(method="bfill",inplace = True)
+print(df)
+df.replace("female","male",inplace=True)print(df)
+
 2  feature selection/extraction to perform dimensionality reduction:
 
 from pandas import read_csv
